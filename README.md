@@ -11,8 +11,7 @@ This script will download all your Snapchat memories in bulk, **including the ti
 
 > ❗ If you don't care about timestamps or geolocations, you don't need this tool and can just enable the top option ❗
 
-![export configuration](https://github.com/user-attachments/assets/cfd40f96-386e-408c-9691-4dd32d2ad5ef)
-
+![export configuration](https://github.com/user-attachments/assets/e328297c-f871-4091-a8d0-cf09d9d98615)
 
 ## Downloading your Memories
 - Clone or [Download](https://github.com/ToTheMax/Snapchat-All-Memories-Downloader/archive/refs/heads/master.zip) this Repository
