@@ -16,7 +16,10 @@ This script will download all your Snapchat memories in bulk, **including the ti
 - Extract the zip-file received from Snapchat in the same folder
 - Run the script:
     - Requirements: Python3
-    - Install the required modules: `pip install -r requirements.txt`
+    - Install the required packages: 
+	```
+	pip install -r requirements.txt
+	```
     - Run the script: 
     ```
     python main.py
