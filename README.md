@@ -15,7 +15,7 @@ This script will download all your Snapchat memories in bulk, **including the ti
 - Clone or [Download](https://github.com/ToTheMax/Snapchat-All-Memories-Downloader/archive/refs/heads/main.zip) this Repository
 - Extract the zip-file received from Snapchat in the same folder
 - Run the script:
-    - Requirements: Python3
+    - Requirements: Python3.10+
     - Install the required packages: 
 	```
 	pip install -r requirements.txt
