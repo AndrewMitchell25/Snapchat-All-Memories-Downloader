@@ -17,6 +17,7 @@ import piexif
 import httpx
 from pydantic import BaseModel, Field, field_validator
 from tqdm.asyncio import tqdm
+from tzlocal import get_localzone
 
 
 class Memory(BaseModel):
@@ -35,7 +36,8 @@ class Memory(BaseModel):
             dt = datetime.strptime(v, "%Y-%m-%d %H:%M:%S UTC")
             dt = dt.replace(tzinfo=timezone.utc)
             # Convert to local Pacific Time (handles PST/PDT automatically)
-            return dt.astimezone(ZoneInfo("America/Los_Angeles"))
+            local_tz = get_localzone()
+            return dt.astimezone(local_tz)
         return v
 
 
@@ -187,10 +189,7 @@ async def download_memory(
                 content = response.content
 
                 # Detect ZIP (overlay)
-                is_zip = (
-                    response.headers.get("Content-Type", "").lower().startswith("application/zip")
-                    or content[:4] == b"PK\x03\x04"
-                )
+                is_zip = response.headers.get("Content-Type", "").lower().startswith("application/zip")
 
                 if is_zip:
                     with zipfile.ZipFile(io.BytesIO(content)) as zf:
@@ -365,6 +364,8 @@ async def main():
 
     json_path = Path(args.json_file)
     output_dir = Path(args.output)
+
+    print(f"Detected local timezone: {get_localzone()}")
 
     memories = load_memories(json_path)
 
